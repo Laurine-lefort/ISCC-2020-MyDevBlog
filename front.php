@@ -15,14 +15,14 @@
     <?php
     session_start();
     if($_GET['page'] == 1){
-       echo'<h1>Accueil !</h1>';
+       echo'<h2>Accueil !</h2>';
        
     }
     elseif($_GET['page'] ==2){
-        echo'<h1>Articles</h1>';
+        echo'<h2>Articles</h2>';
     }
     elseif($_GET['page'] ==3){
-        echo'<h1>Contact</h1>';
+        echo'<h2>Contact</h2>';
     }
     ?>
 
