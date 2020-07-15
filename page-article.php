@@ -17,6 +17,8 @@ function connect_to_database() {
  try {      
        $pdo = new PDO("mysql:host=$servername;dbname=$databasename", $username, $password);  
        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); 
+       echo"Connection réussie";
+        return $pdo;
        } 
        catch (PDOException $e) 
        {        
@@ -24,6 +26,23 @@ function connect_to_database() {
               } 
            }
            ?>
+           <ul>
+    <?php
+
+function articles($pdo) {
+
+    $articles=$pdo->query('SELECT * FROM Articles');
+while($article =$articles->fetch())
+{
+    echo'<ul><li>' .$article['New York']. '</li></ul>';
+}
+        ?>
+        <?php
+    }
+$pdo=connect_to_database();
+articles($pdo);
+include("footer.php");
+?>
+</ul>
 </body>
-<?php include("footer.php")?>
 </html>

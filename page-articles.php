@@ -35,11 +35,11 @@ function articles($pdo) {
 while($article =$articles->fetch())
 {
     echo'<ul><li>' .$article['Titre']. '</li></ul>';
-    echo'<ul><li>' .$article['Image']. '</li></ul>';
     echo'<ul><li>' .$article['Date de publication']. '</li></ul>';
     echo'<ul><li>' .$article['Auteur']. '</li></ul>';
     echo'<ul><li>' .$article['Contenu texte']. '</li></ul>';
     echo'<ul><li>' .$article['Extrait']. '</li></ul>';
+    echo'<br></br>';
 }
         ?>
         <?php
