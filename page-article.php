@@ -31,10 +31,10 @@ function connect_to_database() {
 
 function articles($pdo) {
 
-    $articles=$pdo->query('SELECT * FROM Articles');
+    $articles=$pdo->query('SELECT * FROM Articles WHERE Titre LIKE Dubai');
 while($article =$articles->fetch())
 {
-    echo'<ul><li>' .$article['New York']. '</li></ul>';
+    echo'<ul><li>' .$article['Titre']. '</li></ul>';
 }
         ?>
         <?php

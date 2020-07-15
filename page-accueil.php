@@ -29,9 +29,23 @@ function connect_to_database() {
               } 
            }
            ?>
-<?php
+           <ul>
+    <?php
+
+function articles($pdo) {
+
+    $articles=$pdo->query('SELECT * FROM Articles');
+while($article =$articles->fetch())
+{
+    echo'<ul><li>' .$article['Date']. '</li></ul>';
+}
+        ?>
+        <?php
+    }
 $pdo=connect_to_database();
+articles($pdo);
 include("footer.php");
 ?>
+</ul>
 </body>
 </html>
