@@ -17,6 +17,8 @@ function connect_to_database() {
  try {      
        $pdo = new PDO("mysql:host=$servername;dbname=$databasename", $username, $password);  
        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); 
+        echo"Connection réussie";
+        return $pdo;
        } 
        catch (PDOException $e) 
        {        
@@ -29,21 +31,23 @@ function connect_to_database() {
 
 function articles($pdo) {
 
-    $articles=$pdo->query("SELECT * FROM articles")->fetchAll();
-
-    foreach($articles as $articles) {
-        echo'<h2><li>'. $articles['titre'].'</li></h2>';
-        echo'<p>'.$articles['extrait'].'</p>';
-        
-        $number_article=$articles['Titre'];
+    $articles=$pdo->query('SELECT * FROM Articles');
+while($article =$articles->fetch())
+{
+    echo'<ul><li>' .$article['Titre']. '</li></ul>';
+    echo'<ul><li>' .$article['Image']. '</li></ul>';
+    echo'<ul><li>' .$article['Date de publication']. '</li></ul>';
+    echo'<ul><li>' .$article['Auteur']. '</li></ul>';
+    echo'<ul><li>' .$article['Contenu texte']. '</li></ul>';
+    echo'<ul><li>' .$article['Extrait']. '</li></ul>';
+}
         ?>
         <?php
     }
-}
-connect_to_database();
+$pdo=connect_to_database();
 articles($pdo);
+include("footer.php");
 ?>
 </ul>
 </body>
-<?php include("footer.php")?>
 </html>

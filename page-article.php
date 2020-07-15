@@ -6,6 +6,7 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <?php include("header.php")?>
+
 <body>
 <?php
 function connect_to_database() {    
