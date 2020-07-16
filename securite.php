@@ -1,5 +1,5 @@
 <?php
-            function connected_data() {    
+            function connect_to_database() {    
                 $servername = "localhost"; 
                 $username = 'root';    
                  $password = 'root'; 
@@ -19,22 +19,22 @@
             function login ($pdo)
              {
              try
+            { 
+             if (!empty($_POST['login'])& !empty($_POST['password']))
             {
-             if (!empty($_POST['loginn'])&& !empty($_POST['passwordd']))
-            {
-            $login=$_POST['loginn'];
-             $password=$_POST['passwordd'];
+            $login=$_POST['login'];
+             $password=$_POST['password'];
                         
-           $requete=$pdo->query("SELECT passwordd
+           $requete=$pdo->query("SELECT password
             FROM utilisateurs
-             WHERE loginn='$login'");
+             WHERE login='$login'");
             $res=$requete->fetchAll();
                         
             if ($res)
              {
-            if($password == $res[0]['passwordd'])
+            if($password == $res[0]['password'])
              {
-              echo "Bonjour ".$_POST['loginn']." !";
+              echo "Bonjour ".$_POST['login']." !";
                echo '<br>';
               echo "Vous êtes connectés";
               echo '<br>';
@@ -57,3 +57,4 @@
  login($pdo);
 ?>
 </html>
+

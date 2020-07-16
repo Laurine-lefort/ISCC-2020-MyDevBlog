@@ -12,15 +12,8 @@
             <p> Ecrire un article :</p>
             <label for="Titre">Titre</label>
             <div id="Titre">
-                <input type="text" name="Titre" id="Titre">
-            </div>
-            <div id="Image">
-                <input type="blomb" name="Image" id="Image">
-            </div>
-            <div id="Auteur">
-                <input type="text" name="Auteur" id="Auteur">
-            </div>
-
+                <input type="text" name="Titre" id="Titre"> <br>
+</div>
         <textarea name="ajouter_article" placeholder="Votre message"></textarea><br/>
 
         <br><input type="submit" value="Envoyer">
@@ -50,7 +43,7 @@ function connect_to_database() {
             if(!empty($_POST['Titre']) AND !empty($_POST['ajouter_article'])) {
                 $titre= htmlspecialchars($_POST['Titre']);
                 $red_article= htmlspecialchars($_POST['ajouter_article']);
-                $ins= $bdd->prepare('INSERT INTO articles (Titre,Image,Date de publication,Auteur, Contenu texte,Extrait) VALUES(?,?,NOW(),?,?,?)');
+                $ins= $bdd->prepare('INSERT INTO articles (Titre,Image,Date de publication) VALUES(?,?,NOW())');
                 $ins->execute(array($titre, $red_article));
                 $message= 'Votre article est posté !';
             } else {

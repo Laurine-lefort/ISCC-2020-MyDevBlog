@@ -1,0 +1,14 @@
+@font-face
+{
+    font-family: 'OpenSans';
+    src: url('police/OpenSans-Regular.ttf');
+}
+
+header 
+{
+    background-color: bisque;
+}
+
+h1{
+    text-align: center;
+}
