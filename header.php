@@ -11,5 +11,6 @@
   <a href="page-articles.php">Articles</a>
   <a href="page-contact.php">Contact</a>
   <a href="page-article.php">Article</a>
+  <a href="page-connexion.php">Connexion</a>
 </header>
 </html>

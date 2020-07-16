@@ -15,7 +15,7 @@ function connect_to_database() {
     $servername = "localhost"; 
     $username = 'root';    
      $password = 'root'; 
-     $databasename = "articles"; 
+     $databasename = "utilisateurs"; 
  try {      
        $pdo = new PDO("mysql:host=$servername;dbname=$databasename", $username, $password);  
        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); 
@@ -27,26 +27,42 @@ function connect_to_database() {
             echo "Connection failed : ". $e->getMessage();  
               } 
            }
+           $pdo=connect_to_database();
+           ?> 
+        
+        <form method= "post" action="page-ajout-utilisateur.php">
+            <p>
+                <label for="Nom_utilisateur"> Nom de l'utilisateur:</label>
+                <input type="text" name="Nom_utilisateur" id="Nom_utilisateur" placeholder="lau.lft" style="width: 250px;" style="height: 30px;"/>
+        </p>
+        <p>
+                <label for="login"> Login:</label>
+                <input type="text" name="login" id="login" style="width: 250px;" style="height: 30px;"/>
+        </p>
+        <p>
+                <label for="password"> password:</label>
+                <input type="text" name="password" id="password" placeholder="856" style="width: 250px;" style="height: 30px;"/>
+        </p>
+        <input type="submit" value="Envoyer!">
+        </form>
 
-function ajout_utilisateur($pdo)
-{
-    $login =$_POST ['login'];
-    $password=$_POST ['password'];
+        <?php
+function insert_data($pdo) {
+    $Nu= $_POST ['Nom_utilisateur'];
+    $login= $_POST ['login'];
+    $password= $_POST ['password'];
+
     try {
-        $sql="INSERT INTO
-        utilisateurs (login, password)
-        VALUES ('$login', '$password')";
-        $pdo->exec($sql);
-        echo "utilisateur ajouté";
-    }  catch (PDOException $e) {
-        echo "utilisateur non ajouté";
+        $_REQUEST= "INSERT INTO lesutilisateurs(Nom_utilisateur, login,password)
+                    VALUES('$Nu', '$login', '$password')";
+
+        $pdo->exc($_REQUEST);
+    }
+    catch (PDOException $e) {
+        echo"Erreur insert". $e->getMessage();
     }
 }
+insert_data($pdo);
 
-
-
-
-           $pdo=connect_to_database();
-           ajout_utilisateur($pdo);
-           ?> 
+        ?>
 </html>
