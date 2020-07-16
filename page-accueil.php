@@ -37,7 +37,7 @@ function articles($pdo) {
     $articles=$pdo->query('SELECT * FROM Articles');
 while($article =$articles->fetch())
 {
-    echo'<ul><li>' .$article['Date']. '</li></ul>';
+    echo'<ul><li>' .$article['Titre']. '</li></ul>';
 }
         ?>
         <?php

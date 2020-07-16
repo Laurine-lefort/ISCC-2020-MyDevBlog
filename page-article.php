@@ -31,7 +31,7 @@ function connect_to_database() {
 
 function articles($pdo) {
 
-    $articles=$pdo->query('SELECT * FROM Articles WHERE Titre LIKE Dubai');
+    $articles=$pdo->query("SELECT * FROM Articles WHERE Titre = 'Dubai'");
 while($article =$articles->fetch())
 {
     echo'<ul><li>' .$article['Titre']. '</li></ul>';
