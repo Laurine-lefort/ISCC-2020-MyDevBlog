@@ -48,15 +48,15 @@ function connect_to_database() {
 
         <?php
 function insert_data($pdo) {
-    $Nu= $_POST ['Nom_utilisateur'];
-    $login= $_POST ['login'];
-    $password= $_POST ['password'];
+    $Nu= addslashes($_POST ['Nom_utilisateur']);
+    $login= addslashes($_POST ['login']);
+    $password= addslashes($_POST ['password']);
 
     try {
-        $_REQUEST= "INSERT INTO lesutilisateurs(Nom_utilisateur, login,password)
+        $sql= "INSERT INTO lesutilisateurs(Nom_utilisateur, login,password)
                     VALUES('$Nu', '$login', '$password')";
 
-        $pdo->exc($_REQUEST);
+        $pdo->exc($sql);
     }
     catch (PDOException $e) {
         echo"Erreur insert". $e->getMessage();
