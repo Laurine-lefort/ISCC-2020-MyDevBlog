@@ -38,6 +38,8 @@ function articles($pdo) {
 while($article =$articles->fetch())
 {
     echo'<ul><li>' .$article['Titre']. '</li></ul>';
+    echo'<ul><li>' .$article['Extrait']. '</li></ul>';
+    echo'<br></br>';
 }
         ?>
         <?php
