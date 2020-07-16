@@ -38,7 +38,7 @@ function articles($pdo) {
 while($article =$articles->fetch())
 {
     echo'<ul><li>' .$article['Titre']. '</li></ul>';
-    echo'<ul><li>' .$article['Extrait']. '</li></ul>';
+    echo'<ul><li>' .$article['Contenu texte']. '</li></ul>';
     echo'<br></br>';
 }
         ?>
