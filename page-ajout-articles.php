@@ -57,7 +57,7 @@ function connect_to_database() {
             if(!empty($_POST['Titre']) AND !empty($_POST['ajouter_article'])) {
                 $titre= htmlspecialchars($_POST['Titre']);
                 $red_article= htmlspecialchars($_POST['ajouter_article']);
-                $ins= $bdd->prepare('INSERT INTO articles (Titre,Image,Date de publication,Auteur, Contenu texte,Extrait) VALUES(?,?,NOW(),?,?,?)');
+                $ins= $bdd->prepare('INSERT INTO Articles (Titre,Image,Date de publication,Auteur, Contenu texte,Extrait) VALUES(?,?,NOW(),?,?,?)');
                 $ins->execute(array($titre, $red_article));
                 $message= 'Votre article est posté !';
             } else {
