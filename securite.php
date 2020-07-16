@@ -8,7 +8,8 @@
                    $pdo = new PDO("mysql:host=$servername;dbname=$databasename", $username, $password);  
                    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); 
                   
-                   echo "<h3>Connected successfully<h3/>";   
+                   echo "<h3>Connected successfully<h3/>"; 
+                   return $pdo;  
           
              }  
             catch (PDOException $e) {        
@@ -26,7 +27,7 @@
              $password=$_POST['password'];
                         
            $requete=$pdo->query("SELECT password
-            FROM utilisateurs
+            FROM lesutilisateurs
              WHERE login='$login'");
             $res=$requete->fetchAll();
                         
