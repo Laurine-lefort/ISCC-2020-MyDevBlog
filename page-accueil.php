@@ -34,7 +34,7 @@ function connect_to_database() {
 
 function articles($pdo) {
 
-    $articles=$pdo->query('SELECT * FROM Articles');
+    $articles=$pdo->query('SELECT * FROM Articles LIMIT 5');
 while($article =$articles->fetch())
 {
     echo'<ul><li>' .$article['Titre']. '</li></ul>';
