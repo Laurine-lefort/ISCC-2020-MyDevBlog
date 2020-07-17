@@ -57,7 +57,8 @@ function insert_data($pdo) {
                     VALUES('$Nu', '$login', '$password')";
 
         $pdo->exc($sql);
-        return $pdo;
+        header('page-ajout-utilisateur.php');
+        echo 'Article ajouté';
     }
     catch (PDOException $e) {
         echo"Erreur insert". $e->getMessage();
