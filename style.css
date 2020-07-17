@@ -1,7 +1,7 @@
 @font-face
 {
     font-family: 'OpenSans';
-    src: url('police/OpenSans-Regular.ttf');
+    src: url('OpenSans-Bold.ttf');
 }
 
 header 
@@ -10,5 +10,6 @@ header
 }
 
 h1{
+    font-family: 'OpenSans';
     text-align: center;
 }
