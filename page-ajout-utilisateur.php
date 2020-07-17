@@ -33,11 +33,11 @@ function connect_to_database() {
         <form method= "post" action="page-ajout-utilisateur.php">
             <p>
                 <label for="Nom_utilisateur"> Nom de l'utilisateur:</label>
-                <input type="text" name="Nom_utilisateur" id="Nom_utilisateur" placeholder="lau.lft" style="width: 250px;" style="height: 30px;"/>
+                <input type="text" name="Nom_utilisateur" id="Nom_utilisateur" placeholder="3" style="width: 250px;" style="height: 30px;"/>
         </p>
         <p>
                 <label for="login"> Login:</label>
-                <input type="text" name="login" id="login" style="width: 250px;" style="height: 30px;"/>
+                <input type="text" name="login" id="login" placeholder="lau.lft" style="width: 250px;" style="height: 30px;"/>
         </p>
         <p>
                 <label for="password"> password:</label>
@@ -57,6 +57,7 @@ function insert_data($pdo) {
                     VALUES('$Nu', '$login', '$password')";
 
         $pdo->exc($sql);
+        return $pdo;
     }
     catch (PDOException $e) {
         echo"Erreur insert". $e->getMessage();
